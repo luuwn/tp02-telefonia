@@ -14,4 +14,12 @@ public class Assinante{
 
     }
 
+    public long getCpf(){
+        return cpf;
+    }
+
+    public String toString(){
+        return "Nome: " + nome + "\nNumero:" + numero;
+    }
+
 }
