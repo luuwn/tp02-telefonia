@@ -19,7 +19,7 @@ public class Assinante{
     }
 
     public String toString(){
-        return "Nome: " + nome + "\nNumero:" + numero;
+        return "Nome: " + nome + "\nNúmero:" + numero;
     }
 
 }
