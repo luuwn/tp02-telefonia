@@ -16,7 +16,6 @@ public class PrePago extends Assinante{
 		if(numChamadas < chamadas.length) {
 			float custo = duracao * 1.45f;
 			if(creditos > custo){
-				//Chamada call = new Chamada(data, duracao, custo);
 				Chamada call = new Chamada(data, duracao);
 				chamadas[numChamadas] = call;
 				numChamadas++;
@@ -27,6 +26,18 @@ public class PrePago extends Assinante{
 			  } 
 		} else {
 			System.out.println("O NÚMERO DE CHAMADAS MÁXIMO FOI ATINGIDO");
+		  }
+	}
+
+	public void recarregar(GregorianCalendar data, float valor) {
+		if(numRecargas < recargas.length){
+			Recarga recar = new Recarga(data, valor);
+			recargas[numRecargas] = recar;
+			numRecargas++;
+			creditos += valor;
+
+		} else {
+			System.out.println("O NÚMERO DE RECARGAS MÁXIMO FOI ATINGIDO");
 		  }
 	}
 }
