@@ -40,4 +40,31 @@ public class PrePago extends Assinante{
 			System.out.println("O NÚMERO DE RECARGAS MÁXIMO FOI ATINGIDO");
 		  }
 	}
+
+	public void imprimirFatura(int mes) {
+		float custoMensal = 0f;
+		float recarMensal = 0f;
+		System.out.println("CPF: " + getCpf() + "\n" + toString());
+		System.out.println("FATURA CHAMADAS");
+		for(int i = 0; i < chamadas.length; i ++) {
+			if (chamadas[i] != null) {
+				if(chamadas[i].getData().get(GregorianCalendar.MONTH) == (mes - 1)) {
+					System.out.println(chamadas[i].toString()+"| Custo: "+chamadas[i].getDuracao()*1.04f);
+					//custoMensal += chamadas[i].getCusto();
+					custoMensal += (chamadas[i].getDuracao() * 1.45f);
+				}
+			}
+		}
+		System.out.println("FATURA RECARGAS:");
+		for(int i = 0; i < recargas.length; i ++) {
+			if (recargas[i] != null) {
+				if(recargas[i].getData().get(GregorianCalendar.MONTH) == (mes - 1)) {
+					System.out.println(recargas[i].toString());
+					recarMensal += recargas[i].getValor();
+				}
+			}
+		}
+		System.out.println("CUSTO DE CHAMADAS MENSAL: " + new DecimalFormat("#.##").format(custoMensal));
+		System.out.println("VALOR DE RECARGAS MENSAL: " + recarMensal);
+	}
 }
