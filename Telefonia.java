@@ -144,6 +144,57 @@ public class Telefonia{
         return null;
     }
 
-    public static void main(String[] args) {}
+	public void imprimirFaturas(){
+		System.out.println("DIGITE O NÚMERO DO MÊS \n(EX. Janeiro = 1, Dezembro = 11):");
+		int mes = scan.nextInt();
+		System.out.println("ASSINANTES PRÉ-PAGOS:");
+		for(int i = 0; i < numPrePagos; i ++) {
+			prePagos[i].imprimirFatura(mes);
+			}
+		
+		System.out.println("ASSINANTES POS-PAGOS:");
+		for(int i = 0; i < numPosPagos; i ++) {
+			posPagos[i].imprimirFatura(mes);
+		}
+	}
+	
+	public static void main(String[] args) {
+        Telefonia empresa = new Telefonia();
+        Scanner scan = new Scanner(System.in);
+        int opcao;
+        do {
+            System.out.println("\nEscolha uma opção:");
+            System.out.println("1 - Cadastrar assinante");
+            System.out.println("2 - Listar assinantes");
+            System.out.println("3 - Fazer chamada");
+            System.out.println("4 - Fazer recarga (somente para assinantes pré-pagos)");
+            System.out.println("5 - Imprimir faturas");
+            System.out.println("6 - Sair");
+            opcao = scan.nextInt();
+            switch (opcao) {
+                case 1:
+                    empresa.cadastrarAssinante();
+                    break;
+                case 2:
+                    empresa.listarAssinantes();
+                    break;
+                case 3:
+                    empresa.fazerChamada();
+                    break;
+                case 4:
+                    empresa.fazerRecarga();
+                    break;
+                case 5:
+                    empresa.imprimirFaturas();
+                    break;
+                case 6:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+        } while (opcao != 6);
+    }
 
 }
