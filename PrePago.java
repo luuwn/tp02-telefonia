@@ -36,7 +36,7 @@ public class PrePago extends Assinante{
 			recargas[numRecargas] = recar;
 			numRecargas++;
 			creditos += valor;
-
+			System.out.println("RECARGA FEITA COM SUCESSO");
 		} else {
 			System.out.println("O NÚMERO DE RECARGAS MÁXIMO FOI ATINGIDO");
 		  }
