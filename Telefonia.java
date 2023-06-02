@@ -1,3 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 public class Telefonia{
     private PrePgo [] prePagos;
     private PosPago [] posPagos;
@@ -85,20 +89,15 @@ public class Telefonia{
 	            System.out.println("Data da chamada (dd/MM): ");
 	            String d1 = scan.next();
 	            SimpleDateFormat d2 = new SimpleDateFormat("dd/MM");
-	            Date d3;
+				GregorianCalendar data = new GregorianCalendar();
 				try {
-					d3 = d2.parse(d1);
-					GregorianCalendar data = new GregorianCalendar();
-		            data.setTime(d3);
-		            prePago.fazerChamada(data, duracao);
-		    		//System.out.println("CHAMADA FEITA COM SUCESSO");
+					data.setTime(d2.parse(d1));
+		            posPago.fazerChamada(data, duracao);
 				} catch (ParseException e) {
 	                System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM.");
-				}
+					}
+	        	}
 	            
-	            
-	            //REMOVER O CUSTO DE TODAS AS CLASSES
-	            //TENTAR GERAR O CUSTO NO MOMENTO DA CHAMADA E SEMPRE QUE FOR CHAMADO
 	        } else if (tipoAssinante == 2){
 	        	PosPago posPago = localizarPosPago(cpf);
 	            if (posPago == null) {
@@ -110,13 +109,10 @@ public class Telefonia{
 	            System.out.println("Data da chamada (dd/MM): ");
 	            String d1 = scan.next();
 	            SimpleDateFormat d2 = new SimpleDateFormat("dd/MM");
-	            Date d3;
+				GregorianCalendar data = new GregorianCalendar();
 				try {
-					d3 = d2.parse(d1);
-					GregorianCalendar data = new GregorianCalendar();
-		            data.setTime(d3);
+					data.setTime(d2.parse(d1));
 		            posPago.fazerChamada(data, duracao);
-		    		//System.out.println("CHAMADA FEITA COM SUCESSO"); ISSO É MELHOR NA CLASSE PREPAGO E POSPAGO
 				} catch (ParseException e) {
 	                System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM.");
 					}
@@ -125,6 +121,30 @@ public class Telefonia{
         	System.out.println("DIGITE UMA OPÇÃO VÁLIDA!!!");
         }
     }
+
+	public void fazerRecarga() { 
+		System.out.println("CPF do assinante Pré-Pago: "); 
+        long cpf = scan.nextLong(); 
+        PrePago prePago = localizarPrePago(cpf);
+        if (prePago == null) { 
+            System.out.println("Assinante pré-pago não encontrado.");
+            return; 
+        }
+        
+        System.out.println("Valor da recarga: ");
+        float valor = scan.nextInt(); 
+        System.out.println("Data da recarga (dd/MM): ");
+        String d1 = scan.next();	
+        SimpleDateFormat d2 = new SimpleDateFormat("dd/MM"); 
+        GregorianCalendar data = new GregorianCalendar();
+		try {
+			data.setTime(d2.parse(d1));  
+			prePago.recarregar(data, valor); 
+    		System.out.println("RECARGA FEITA COM SUCESSO");
+		} catch (ParseException e) {
+            System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM.");
+		}
+	}
 
     private PrePago localizarPrePago(long cpf) {
         for (int i = 0; i < numPrePagos;i++) {
@@ -145,13 +165,13 @@ public class Telefonia{
     }
 
 	public void imprimirFaturas(){
-		System.out.println("DIGITE O NÚMERO DO MÊS \n(EX. Janeiro = 1, Dezembro = 11):");
+		System.out.println("DIGITE O NÚMERO DO MÊS \n(Ex. Janeiro = 1, Dezembro = 12):");
 		int mes = scan.nextInt();
 		System.out.println("ASSINANTES PRÉ-PAGOS:");
 		for(int i = 0; i < numPrePagos; i ++) {
 			prePagos[i].imprimirFatura(mes);
 			}
-		
+		System.out.println("\n------------------------------\n")
 		System.out.println("ASSINANTES POS-PAGOS:");
 		for(int i = 0; i < numPosPagos; i ++) {
 			posPagos[i].imprimirFatura(mes);
