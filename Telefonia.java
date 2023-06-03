@@ -11,8 +11,8 @@ public class Telefonia{
 	Scanner scan = new Scanner(System.in);
 
     public Telefonia(){
-        this.prePagos = new PrePago[10];
-        this.posPagos = new PosPago[10];
+        this.prePagos = new PrePago[3];
+        this.posPagos = new PosPago[3];
         this.numPrePagos = 0;
         this.numPosPagos = 0;
     }
