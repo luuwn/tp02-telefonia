@@ -101,7 +101,7 @@ public class Telefonia{
 					}
 	        	}
 	            
-	        } else if (tipoAssinante == 2){
+	        else if (tipoAssinante == 2){
 	        	PosPago posPago = localizarPosPago(cpf);
 	            if (posPago == null) {
 	                System.out.println("Assinante pos-pago não encontrado.");
@@ -122,8 +122,9 @@ public class Telefonia{
 	        	}
 			else {
         	System.out.println("DIGITE UMA OPÇÃO VÁLIDA!!!");
-        }		 
-    } 
+        	}		 
+    	}
+	} 
 
 	public void fazerRecarga() { 
 		System.out.println("CPF do assinante Pré-Pago: "); 
