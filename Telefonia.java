@@ -95,7 +95,7 @@ public class Telefonia{
 				GregorianCalendar data = new GregorianCalendar();
 				try {
 					data.setTime(d2.parse(d1));
-		            posPago.fazerChamada(data, duracao);
+		            prePago.fazerChamada(data, duracao);
 				} catch (ParseException e) {
 	                System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM.");
 					}
