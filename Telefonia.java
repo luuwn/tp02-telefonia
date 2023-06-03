@@ -119,11 +119,11 @@ public class Telefonia{
 				} catch (ParseException e) {
 	                System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM.");
 					}
-	        	}		 
-    	} else {
+	        	}
+			else {
         	System.out.println("DIGITE UMA OPÇÃO VÁLIDA!!!");
-        }
-    }
+        }		 
+    } 
 
 	public void fazerRecarga() { 
 		System.out.println("CPF do assinante Pré-Pago: "); 
@@ -218,5 +218,4 @@ public class Telefonia{
             }
         } while (opcao != 6);
     }
-
-}
+	}
