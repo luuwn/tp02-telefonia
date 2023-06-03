@@ -2,7 +2,7 @@ public class Assinante{
     private long cpf;
     private String nome;
     private int numero;
-    protected Chamadas [] chamadas;
+    protected Chamada [] chamadas;
     protected int numChamadas;
 
     public Assinante(long cpf, String nome, int numero){
