@@ -34,6 +34,9 @@ public class Telefonia{
 				prePagos[numPrePagos] = nante;
 				
 				numPrePagos ++;
+
+				System.out.println("CADASTRO REALIZADO");
+
 			} else {
 				System.out.println("NÃO HÁ MAIS ESPAÇO NO PRÉ-PAGOS");
 			}
@@ -53,6 +56,9 @@ public class Telefonia{
 				posPagos[numPosPagos] = nante;
 				
 				numPosPagos ++;
+
+				System.out.println("CADASTRO REALIZADO");
+
 			} else {
 				System.out.println("NÃO HÁ MAIS ESPAÇO NO POS-PAGOS");
 			}
