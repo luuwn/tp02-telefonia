@@ -11,6 +11,17 @@ public class PosPago extends Assinante {
 	 
 	}
 
+	public void fazerChamada(GregorianCalendar data, int duracao) {
+		if (numChamadas < chamadas.length) {
+			Chamada call = new Chamada(data, duracao); 
+			chamadas[numChamadas] = call; 
+			numChamadas++;
+    		System.out.println("CHAMADA FEITA COM SUCESSO");
+		} else {
+			System.out.println("DESCULPE, O NÚMERO MÁXIMO DE CHAMADAS FOI ATINGIDO");
+		}
+	}
+
 	public void imprimirFatura(int mes) {
 		double custoMensal = assinatura;
 		System.out.println("CPF: " + getCpf() + "\n" + toString());
