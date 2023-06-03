@@ -3,10 +3,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Telefonia{
-    private PrePgo [] prePagos;
+    private PrePago [] prePagos;
     private PosPago [] posPagos;
     private int numPrePagos;
     private int numPosPagos;
+
+	Scanner scan = new Scanner(System.in);
 
     public Telefonia(){
         this.prePagos = new PrePago[10];
@@ -65,6 +67,7 @@ public class Telefonia{
 		for(int i = 0; i < numPrePagos; i ++) {
 			System.out.println(prePagos[i].toString());
 		}
+		System.out.println("\n------------------------------\n");
 		System.out.println("ASSINANTES POS-PAGOS:");
 		for(int i = 0; i < numPosPagos; i ++) {
 			System.out.println(posPagos[i].toString());
@@ -140,7 +143,6 @@ public class Telefonia{
 		try {
 			data.setTime(d2.parse(d1));  
 			prePago.recarregar(data, valor); 
-    		System.out.println("RECARGA FEITA COM SUCESSO");
 		} catch (ParseException e) {
             System.out.println("Formato de data inválido. Certifique-se de usar o formato dd/MM.");
 		}
@@ -171,7 +173,7 @@ public class Telefonia{
 		for(int i = 0; i < numPrePagos; i ++) {
 			prePagos[i].imprimirFatura(mes);
 			}
-		System.out.println("\n------------------------------\n")
+		System.out.println("\n------------------------------\n");
 		System.out.println("ASSINANTES POS-PAGOS:");
 		for(int i = 0; i < numPosPagos; i ++) {
 			posPagos[i].imprimirFatura(mes);
