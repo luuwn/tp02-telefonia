@@ -50,7 +50,7 @@ public class PrePago extends Assinante{
 		for(int i = 0; i < chamadas.length; i ++) {
 			if (chamadas[i] != null) {
 				if(chamadas[i].getData().get(GregorianCalendar.MONTH) == (mes - 1)) {
-					System.out.println(chamadas[i].toString()+"| Custo: "+chamadas[i].getDuracao()*1.04f);
+					System.out.println(chamadas[i].toString()+"| Custo: "+chamadas[i].getDuracao()*1.45f);
 					//custoMensal += chamadas[i].getCusto();
 					custoMensal += (chamadas[i].getDuracao() * 1.45f);
 				}
